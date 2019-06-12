@@ -16,3 +16,4 @@ In your browser, type
 - localhost:8080/capitalize/hello 
 
 - localhost:8080/reverse?sentence=hello world
+### [Code](./src/main/java/com/yuangao/java401d4/songr/HelloWorldController.java)
