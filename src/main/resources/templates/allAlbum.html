@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.w3.org/1999/xhtml">
     <head>
         <title>Getting Started: Serving Web Content</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -8,8 +8,11 @@
     <h1> Hello, this is all the Albums we have </h1>
     <ul>
         <li th:each="album : ${albums}">
-            <span th:text="${album.title}"></span>
-
+            <div th:text="${album.title}"></div>
+            <div th:text="${album.artist}"></div>
+            <div th:text="${album.length}"></div>
+            <div th:text="${album.songCount}"></div>
+            <img th:src="${album.imageUrl}" height="100" width="160"/>
         </li>
     </ul>
     </body>

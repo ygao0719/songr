@@ -1,7 +1,6 @@
 package com.yuangao.java401d4.songr;
 
 
-import javax.annotation.Generated;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;

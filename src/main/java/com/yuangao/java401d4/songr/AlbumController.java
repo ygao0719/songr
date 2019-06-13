@@ -19,4 +19,10 @@ public class AlbumController {
         m.addAttribute("albums",albums);
         return "allAlbum";
     }
+
+    @GetMapping("/albums/new")
+    public String getAddAlbumForm(){
+       return "addAlbumForm";
+    }
+
 }
