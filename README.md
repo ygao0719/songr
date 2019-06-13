@@ -16,6 +16,6 @@ In your browser, type
 - localhost:8080/hello 
 - localhost:8080/capitalize/hello 
 - localhost:8080/reverse?sentence=hello world
-- localhost:8080/albums
-
+- localhost:8080/albums 
+User can add the album info and display on the site
 ### [Code](./src/main/java/com/yuangao/java401d4/songr/HelloWorldController.java)

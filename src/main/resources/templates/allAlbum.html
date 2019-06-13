@@ -15,5 +15,14 @@
             <img th:src="${album.imageUrl}" height="100" width="160"/>
         </li>
     </ul>
+
+    <form method="POST" action="/albums">
+        <lable for="text"> Album Title:</lable><input name="title" type="text" />
+        <lable for="artist"> Album Artist:</lable><input name="artist" type="text"/>
+        <lable for="songCount"> Album songCount:</lable><input name="songCount" type="text" />
+        <lable for="length"> Album length:</lable><input name="length" type="text" />
+        <lable for="imageUrl"> Album imageUrl:</lable><input name="imageUrl" type="text" />
+        <input type="submit" />
+    </form>
     </body>
 </html>
