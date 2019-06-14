@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.view.RedirectView;
 
@@ -33,9 +34,10 @@ public class AlbumController {
         return new RedirectView("/albums");
     }
 
-    @GetMapping("/songs")
-    public String getAllSongs(Model m){
-        Iterable<Song> songs = songRepository.findAll();
+    @GetMapping("/albums/{id}")
+    public String getAllSongsFromalbum(@PathVariable long id, Model m){
+        Album a = albumRepository.findById(id).get();
+        Iterable<Song> songs = a.getSongs();
         m.addAttribute("songs",songs);
         return "allSongs";
     }

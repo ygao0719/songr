@@ -30,6 +30,10 @@ public class Album {
         this.imageUrl = imageUrl;
     }
 
+    public List<Song> getSongs(){
+        return this.songs;
+    }
+
     public String getTitle(){
         return this.title;
     }
