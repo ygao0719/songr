@@ -13,9 +13,11 @@
             <div th:text="${album.length}"></div>
             <div th:text="${album.songCount}"></div>
             <img th:src="${album.imageUrl}" height="100" width="160"/>
+            <a href="/hello" >Check album's songs</a>
         </li>
     </ul>
 
+//add albums form
     <form method="POST" action="/albums">
         <lable for="text"> Album Title:</lable><input name="title" type="text" />
         <lable for="artist"> Album Artist:</lable><input name="artist" type="text"/>
