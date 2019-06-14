@@ -13,6 +13,7 @@
             <div th:text="${album.length}"></div>
             <div th:text="${album.songCount}"></div>
             <img th:src="${album.imageUrl}" height="100" width="160"/>
+            <a th:href="@{'/albums/' + ${album.id}}" >Check album's songs</a>
         </li>
     </ul>
 
