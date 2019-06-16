@@ -29,7 +29,9 @@ public class Album {
         this.length = length;
         this.imageUrl = imageUrl;
     }
-
+    public long getId(){
+        return this.id;
+    }
     public List<Song> getSongs(){
         return this.songs;
     }

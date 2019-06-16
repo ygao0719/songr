@@ -24,7 +24,9 @@ public class Song {
         this.trackNumber = trackNumber;
         this.album = album;
     }
-
+    public long getId(){
+        return this.id;
+    }
     public String getSongTitle(){
         return songTitle;
     }

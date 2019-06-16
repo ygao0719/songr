@@ -13,16 +13,16 @@
             <div th:text="${album.length}"></div>
             <div th:text="${album.songCount}"></div>
             <img th:src="${album.imageUrl}" height="100" width="160"/>
-            <a th:href="@{'/albums/' + ${album.id}}" >Check album's songs</a>
+            <a th:href="@{'/albumDetails/' + ${album.id}}" >Check album's songs</a>
         </li>
     </ul>
 
     <form method="POST" action="/albums">
-        <lable for="text"> Album Title:</lable><input name="title" type="text" />
-        <lable for="artist"> Album Artist:</lable><input name="artist" type="text"/>
-        <lable for="songCount"> Album songCount:</lable><input name="songCount" type="text" />
-        <lable for="length"> Album length:</lable><input name="length" type="text" />
-        <lable for="imageUrl"> Album imageUrl:</lable><input name="imageUrl" type="text" />
+        <lable for="text"> Album Title:</lable><input name="title" type="text" /><br />
+        <lable for="artist"> Album Artist:</lable><input name="artist" type="text"/><br />
+        <lable for="songCount"> Album songCount:</lable><input name="songCount" type="text" /><br />
+        <lable for="length"> Album length:</lable><input name="length" type="text" /><br />
+        <lable for="imageUrl"> Album imageUrl:</lable><input name="imageUrl" type="text" /><br />
         <input type="submit" />
     </form>
     </body>
