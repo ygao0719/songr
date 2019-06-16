@@ -6,7 +6,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.view.RedirectView;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 @Controller
 public class AlbumController {
@@ -16,8 +21,9 @@ public class AlbumController {
     @Autowired
     SongRepository songRepository;
 
+    //all albums
     @GetMapping("/albums")
-    public String getNotController(Model m){
+    public String getAllAlbumController(Model m){
 
         Iterable<Album> albums = albumRepository.findAll();
 
@@ -25,7 +31,7 @@ public class AlbumController {
         return "allAlbum";
     }
 
-
+    //create a new albums
     @PostMapping("/albums")
     public RedirectView addAlbum(String title ,String artist,int songCount,
                                  int length, String imageUrl){
@@ -34,13 +40,26 @@ public class AlbumController {
         return new RedirectView("/albums");
     }
 
-    @GetMapping("/albums/{id}")
-    public String getAllSongsFromalbum(@PathVariable long id, Model m){
+    //show particular album's information
+    @GetMapping("/albumDetails/{id}")
+    public String getAllSongsFromAlbum(@PathVariable Long id, Model m){
+
         Album a = albumRepository.findById(id).get();
-        Iterable<Song> songs = a.getSongs();
-        m.addAttribute("songs",songs);
-        return "allSongs";
+
+        m.addAttribute("particularAlbum",a);
+        return "albumDetails";
     }
+
+    //add new songs
+    @PostMapping("/albumDetails/{id}")
+    public String addSong(@PathVariable Long id, @RequestParam String songTitle, @RequestParam int songLength,
+                                @RequestParam int trackNumber ){
+        Album a = albumRepository.findById(id).get();
+        Song song = new Song(songTitle,songLength,trackNumber,a);
+        songRepository.save(song);
+        return "redirect:/albumDetails/{id}";
+    }
+
 
 
 
