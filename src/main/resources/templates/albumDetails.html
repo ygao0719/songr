@@ -5,9 +5,10 @@
     <title>This album's details</title>
 </head>
 <body>
-
+<h1><a href="/albums">All Album Page</a></h1>
+<h2>These are the songs in album <span th:text="${particularAlbum.title}"></span></h2>
 <ul>
-    <li th: each="song: ${particularAlbum.songs}">
+    <li th:each="song: ${particularAlbum.getSongs()}">
         <div th:text="${song.songTitle}"></div>
         <div th:text="${song.songLength}"></div>
         <div th:text="${song.trackNumber}"></div>
@@ -21,8 +22,6 @@
     Song TrackNumber: <input name="trackNumber" /><br />
     <input type="submit" />
 </form>
-
-
 
 </body>
 </html>
