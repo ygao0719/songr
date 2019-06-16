@@ -52,12 +52,12 @@ public class AlbumController {
 
     //add new songs
     @PostMapping("/albumDetails/{id}")
-    public String addSong(@PathVariable Long id, @RequestParam String songTitle, @RequestParam int songLength,
+    public RedirectView addSong(@PathVariable Long id, @RequestParam String songTitle, @RequestParam int songLength,
                                 @RequestParam int trackNumber ){
         Album a = albumRepository.findById(id).get();
         Song song = new Song(songTitle,songLength,trackNumber,a);
         songRepository.save(song);
-        return "redirect:/albumDetails/{id}";
+        return new RedirectView("/albumDetails/{id}");
     }
 
 
